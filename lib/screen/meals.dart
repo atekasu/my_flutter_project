@@ -16,13 +16,18 @@ class MealsScreen extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Text('Uh oh ... nothing here!'),
+            Text(
+              'Uh oh ... nothing here!',
+              style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                    color: Theme.of(context).colorScheme.onBackground,
+                  ),
+            ),
             const SizedBox(
               height: 16,
             ),
             Text(
               'Try selectiong a different category!',
-              style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                     color: Theme.of(context).colorScheme.onBackground,
                   ),
             )
@@ -32,6 +37,7 @@ class MealsScreen extends StatelessWidget {
     }
     if (meals.isNotEmpty) {
       content = ListView.builder(
+        itemCount: meals.length,
         itemBuilder: (ctx, index) => Text(meals[index].title),
       );
     }
