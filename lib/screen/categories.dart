@@ -7,7 +7,10 @@ import 'package:meals/models/category.dart';
 
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({super.key});
-  void _selectCategory(BuildContext context, Category category) {
+  void _selectCategory(
+    BuildContext context,
+    Category category,
+  ) {
     final filteredMeals = dummyMeals
         .where((meal) => meal.categories.contains(category.id))
         .toList();
@@ -29,7 +32,7 @@ class CategoriesScreen extends StatelessWidget {
         title: const Text('Pick your category'),
       ),
       body: GridView(
-        padding: EdgeInsets.all(24),
+        padding: const EdgeInsets.all(24),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           childAspectRatio: 3 / 2,
